@@ -24,7 +24,9 @@ const authMiddleware = function(req,res,next){
 
 router.get("/dashboard", async (req, res) => {
   try {
+   
     const data = await Student.find().sort({ firstName: 1 });
+    res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(data))
   } catch (err) {
