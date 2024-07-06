@@ -22,7 +22,7 @@ const authMiddleware = function(req,res,next){
   }
 }
 
-router.get("/dashboard", authMiddleware, async (req, res) => {
+router.get("/dashboard", async (req, res) => {
   try {
     const data = await Student.find().sort({ firstName: 1 });
     res.json(data);
