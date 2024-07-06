@@ -1,0 +1,32 @@
+<main
+  class="my-5 form p-5 rounded-3 bg-secondary text-light container d-flex flex-column justify-content-center align-items-center"
+>
+  <h2 class="text-center">Sign in</h2>
+  <form style="width: 100%" action="/student/login" method="post" class="">
+    <div class="mb-3">
+      <label class="form-label fs-4" for="username">Username</label>
+      <input
+        class="form-control"
+        placeholder="e.g., Ahmed Geelle"
+        type="text"
+        name="username"
+        id="username"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label fs-4" for="password">password</label>
+      <input
+        class="form-control"
+        placeholder="e.g., 123"
+        type="text"
+        name="password"
+        id="password"
+      />
+    </div>
+    <input
+      type="submit"
+      class="btn btn-success rounded mt-3 fs-4"
+      value="submit"
+    />
+  </form>
+</main>

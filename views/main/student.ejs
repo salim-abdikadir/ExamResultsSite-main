@@ -1,0 +1,37 @@
+   <% 
+   const sum = data.exams.reduce((a,b)=>a+b.marks,0)
+  const required = 7 * 50;
+   const grade = sum > (required * (1 - 0.125))?"A":
+                sum > (required * (1 - 0.125-0.125))?"B":
+                sum > (required *(1 - 0.125-0.125-0.125))?"C":
+                sum > (required * (1 - 0.125 - 0.125 - 0.125 - 0.125))?"D":
+                "E";
+   %>
+<div class="container mt-5">
+  <h1  class="text-center text-dark mb-4">
+    Welcome <%= data.firstName+" "+data.middleName %>
+  </h1>
+
+  <h2 class="text-center bg-dark text-light py-2">
+    You got <span class="<%= grade != "E"?"text-success":"text-danger" %>"><%= grade  %></span>
+  </h2>
+
+  <h5>here are your exam results</h5>
+  <hr class="bg-dark" />
+  <table class="table table-striped mt-5">
+    <tr class="table-dark">
+      <th scope="col">Subject</th>
+      <th scope="col">Marks</th>
+    </tr>
+    <% data.exams.forEach(exam => { %>
+    <tr>
+      <td><%= exam.subject %></td>
+      <td><%= exam.marks %> / 50</td>
+    </tr>
+    <% }) %>
+    <tr class="table-success">
+      <td>total</td>
+      <td><%= sum%> / <%= required %></td>
+    </tr>
+  </table>
+</div>
